@@ -100,7 +100,15 @@ namespace BallGame.Player
             overchargeTimer = 0f;
 
             Vector3 aimDir = GetAimDirection(transform.position);
-            Vector3 initialPos = transform.position + aimDir * (playerBall.CurrentRadius + surfaceGap);
+            float totalDistance = playerBall.CurrentRadius + minShotRadius + surfaceGap;
+            
+            // Висота центру снаряда прив'язана до підлоги, а не до центру гравця
+            float shotY = playerBall.GroundY + minShotRadius;
+            Vector3 initialPos = new Vector3(
+                transform.position.x + aimDir.x * totalDistance,
+                shotY,
+                transform.position.z + aimDir.z * totalDistance
+            );
 
             if (ShotPool.Instance != null)
             {
@@ -133,7 +141,13 @@ namespace BallGame.Player
 
             Vector3 aimDir = GetAimDirection(transform.position);
             float totalDistance = playerBall.CurrentRadius + currentShot.CurrentRadius + surfaceGap;
-            Vector3 shotCenterPos = transform.position + aimDir * totalDistance;
+            
+            float shotY = playerBall.GroundY + currentShot.CurrentRadius;
+            Vector3 shotCenterPos = new Vector3(
+                transform.position.x + aimDir.x * totalDistance,
+                shotY,
+                transform.position.z + aimDir.z * totalDistance
+            );
 
             currentShot.transform.position = shotCenterPos;
 

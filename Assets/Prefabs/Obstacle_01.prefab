@@ -63,7 +63,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &5035581100125348531
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7836dcb172237e43a4c6bbee6462740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallGame.Obstacles.Obstacle
-  explosionVfxPrefab: {fileID: 6799432795795543031, guid: 528c4fd052babe646b08df53b2e17068, type: 3}
-  destroyDelay: 0.05
+  fallbackVfxPrefab: {fileID: 0}
+  infectedColor: {r: 1, g: 0.3, b: 0.2, a: 1}

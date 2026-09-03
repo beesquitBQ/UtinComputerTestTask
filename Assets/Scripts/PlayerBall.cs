@@ -28,6 +28,7 @@ namespace BallGame.Player
         public float StartRadius => startRadius;
         public float CriticalRadius => criticalRadius;
         public float CurrentRadius { get; private set; }
+        public float GroundY => groundY;
         public bool IsJumping { get; private set; }
         public bool IsAtCritical => CurrentRadius <= criticalRadius + CRITICAL_TOLERANCE;
 
